@@ -9,7 +9,7 @@ CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 GITHUB_PAGES_BRANCH=master
-GITHUB_PAGES_REPO_LOCATION=$(BASEDIR)../connascence.github.io
+GITHUB_PAGES_REPO_LOCATION=$(BASEDIR)/../connascence.github.io
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -85,8 +85,8 @@ publish:
 
 github: publish
 	cp -r $(OUTPUTDIR) $(GITHUB_PAGES_REPO_LOCATION)
-	git add $(GITHUB_PAGES_REPO_LOCATION)/*
-	git commit $(GITHUB_PAGES_REPO_LOCATION) -m "Automatic release."
+	cd $(GITHUB_PAGES_REPO_LOCATION) && git add *
+	cd $(GITHUB_PAGES_REPO_LOCATION) && git commit -m "Automatic release."
 	cd $(GITHUB_PAGES_REPO_LOCATION) && git push origin $(GITHUB_PAGES_BRANCH)
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
