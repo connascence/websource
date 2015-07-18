@@ -84,7 +84,7 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 github: publish
-	cp -r $(OUTPUTDIR) $(GITHUB_PAGES_REPO_LOCATION)
+	cp -r $(OUTPUTDIR)/* $(GITHUB_PAGES_REPO_LOCATION)
 	cd $(GITHUB_PAGES_REPO_LOCATION) && git add *
 	cd $(GITHUB_PAGES_REPO_LOCATION) && git commit -m "Automatic release."
 	cd $(GITHUB_PAGES_REPO_LOCATION) && git push origin $(GITHUB_PAGES_BRANCH)
