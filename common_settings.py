@@ -26,3 +26,9 @@ DEFAULT_DATE = 'fs'
 
 # Order 'articles' (really connascences) by their 'strength' metadata.
 ARTICLE_ORDER_BY = lambda a: int(a.metadata.get('strength', '100'))
+# Order 'pages' similarly - controls order in navigation.
+PAGE_ORDER_BY = lambda p: int(p.metadata.get('strength', '100'))
+
+
+# Disable tag, category, author and archive pages:
+DIRECT_TEMPLATES = ['index']
