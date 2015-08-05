@@ -1,20 +1,54 @@
+{# Render a list of connascences, given the article list and the connascence category #}
+{% macro render_connascence_list(article_list, category) -%}
+	<ul class="list-group">
+	{% for article in article_list if article.category == category %}
+    	<li class="list-group-item">
+        	<h4>
+        		<a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
+    	    </h4>
+	        <p>{{ article.summary }}</p>
+    	</li>
+	{% endfor %}
+	</ul>
+{%- endmacro %}
+
 {% extends "base.html" %}
 {% block content %}
-<section id="content">
-{% block content_title %}
-<h2>List of Connascences</h2>
-{% endblock %}
-
-<ol id="post-list">
-{% for article in articles_page.object_list if article.category == 'connascence' %}
-    <li><article class="hentry">
-            <header>
-                <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-            </header>
-            <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
-    </article></li>
-{% endfor %}
-</ol><!-- /#posts-list -->
-{% include 'pagination.html' %}
-</section><!-- /#content -->
+<div class="row">
+	<div class="col-md-12">
+	<div class="page-header">
+		<h1>What is Connascence?</h1>
+	</div>
+	<dl>
+		<dt>Connascence</dt>
+		<dd>
+			<ol>
+				<li>The simultaneous birth of two or more things</li>
+				<li>The act of growing at the same time</li>
+				<li>(computing) A relationship between two or more elements of software in which changing one necessitates changing the others in order to maintain overall correctness.</li>
+			</ol>
+		</dd>
+	</dl>
+	<p>
+	Connascence is a software quality metric that describes different types of coupling. The concept of connascence is a taxonomy of specific types of coupling. Individual connascences have three properties that are important to recognise:
+	<dl>
+		<dt>Strength</dt>
+		<dd>The strength of a specific connascence is determined by how hard it is to change or remove. Generally, when refactoring code, changes should be made to prefer weaker types of connascence over stronger types.</dd>
+		<dt>Degree</dt>
+		<dd>The degree of a connascence refers to the degree of it's occurance within a codebase. Connascences are often acceptable in small quantities, but should be removed if they occur frequently.</dd>
+		<dt>Locality</dt>
+		<dd>The locality of a connascence refers to how far apart the connascent elements are. Generally speaking, connascences will be more acceptible within a function or module, and less acceptible between modules.</dd>
+	</dl>
+	</p>
+	<p>Connascences are also split into <term>static</term> and <term>dynamic</term> connascences. Static connascences can be discovered by inspecting source code, while dynamic connascences can only be discovered by looking at the run-time behavior of a program. For this reason, static connascences are considered to be weaker than their dynamic counterparts.</p>
+	</div>
+	<div class="col-md-6">
+		<h4>Static Connascences</h4>
+		{{ render_connascence_list(articles_page.object_list, 'connascence-static') }}
+	</div>
+	<div class="col-md-6">
+		<h4>Dynamic Connascences</h4>
+		{{ render_connascence_list(articles_page.object_list, 'connascence-dynamic') }}
+	</div>
+</div>
 {% endblock content %}
