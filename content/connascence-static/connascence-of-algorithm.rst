@@ -8,7 +8,14 @@ Connascence of Algorithm
 
 Connascence of algorithm is when multiple components must agree on a particular algorithm. This frequently occurs when two entities must manipulate data in the same way. For example, if data is being transmitted from one service to another, some sort of checksum algorithm is commonly used. The sender and receiver must agree on which algorithm is to be used. If the sender changes the algorithm used, the receiver must change as well.
 
-Consider a hypothetical piece of software that uses a file on disk to cache some expensive calculated result. An example functionto write the data to the cache file might look like this:
+Consider a hypothetical piece of software that required users to provide a valid email address when creating an account. The software must validate that the email address is valid, but this might happen in several places, including:
+
+ * In a database model object.
+ * In a form field in the front-end UI.
+
+These pieces of code might well be in different languages, and will almost certainly be far apart from each other. The consequence of these algorithms being different might include users not being able to register, but recieving no feedback why.
+
+Another common example of connascence of algorithm is when unicode strings are written to disk. Imagine a hypothetical piece of software that writes a data string to a cache file on disk:
 
 .. code-block:: python
 
