@@ -5,7 +5,7 @@ Connascence of Value
 :slug: values
 :summary: Connascence of value is when several values must change together.
 
-Connascence of value is when several values must change together. This frequently occurs between production code and test code. For example, consider an ``Article`` class, which represents a blog article. When it is instantiated, it is given some text contents, and it's initial 'state' is 'draft':
+Connascence of value is when several values must change together. This frequently occurs between production code and test code. For example, consider an ``Article`` class, which represents a blog article. When it is instantiated, it is given some text contents, and its initial 'state' is 'draft':
 
 .. code-block:: python
 
@@ -24,7 +24,7 @@ Connascence of value is when several values must change together. This frequentl
 			# do whatever is required to publish the article.
 			self.state = ArticleState.Published
 
-Now imagine a hypothetical test that ensures that ensures that the ``publish`` method works:
+Now imagine a hypothetical test that ensures that the ``publish`` method works:
 
 .. code-block:: python
 
@@ -69,4 +69,4 @@ Should we need to change the state machine of the ``Article`` class, we can do s
 		Draft = 2
 		Published = 2
 
-We have effectively introduced a level of indirection between the ``Article`` class and it's initial state value.
+We have effectively introduced a level of indirection between the ``Article`` class and its initial state value.

@@ -71,7 +71,7 @@ Another common example of connascence of meaning is when we use primative numeri
 
 	unit_cost = 49.95
 
-What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primative type. It cen be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:
+What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primative type. It can be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:
 
 .. code-block:: python
 

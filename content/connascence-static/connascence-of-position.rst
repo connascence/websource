@@ -11,12 +11,12 @@ Connascence of position is when multiple entities must agree on the order of val
 In Data Structures
 ==================
 
-For example, consider a function that retrieves a users details:
+For example, consider a function that retrieves a user's details:
 
 .. code-block:: python
 
 	def get_user_details():
-		# Returns a users details as a list:
+		# Returns a user's details as a list:
 		# first_name, last_name, year_of_birth, is_admin
 		return ["Thomas", "Richards", 1984, True]
 

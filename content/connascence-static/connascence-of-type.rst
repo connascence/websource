@@ -6,7 +6,7 @@ Connascence of Type
 :summary: Connascence of type is when multiple components must agree on the type of an entity.
 
 
-Connascence of type is when multiple components must address on the type of an entity. In a statically typed language, these issues are often (but not always) caught by the compiler. Consider the following trivial C++ code:
+Connascence of type is when multiple components must agree on the type of an entity. In a statically typed language, these issues are often (but not always) caught by the compiler. Consider the following trivial C++ code:
 
 .. code-block:: c++
 
