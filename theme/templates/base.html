@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
     <link href="{{SITEURL}}/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{SITEURL}}/theme/css/style.css" rel="stylesheet">
+    <link href="{{SITEURL}}/theme/css/simple-sidebar.css" rel="stylesheet">
     <link href="{{SITEURL}}/theme/css/pygments.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,39 +25,31 @@
   {% endblock head %}
   </head>
   <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{SITEURL}}">{{SITENAME}}</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connascences<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-            {% for article in articles if article.category in ('connascence-static', 'connascence-dynamic') %}
-              <li><a href="{{ SITEURL }}/{{ article.url }}">{{article.slug|capitalize}}</a></li>
-            {% endfor %}
-            </ul>
-          </li>
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="{{SITEURL}}">{{SITENAME}}</a></li>
+          <li><h4>Static Connascences</h4></li>
+          {% for a in articles if a.category == 'connascence-static' %}
+            <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
+          {% endfor %}
+          <li><h4>Dynamic Connascences</h4></li>
+          {% for a in articles if a.category == 'connascence-dynamic' %}
+            <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
+          {% endfor %}
+          <li><h4>Properties</h4></li>
           {% for p in PAGES %}
             <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
           {% endfor %}
-          </ul>
-        </div><!--/.nav-collapse -->
+        </ul>
+      </div> <!-- sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+          {% block content %}
+          {% endblock %}
+        </div>
       </div>
-    </nav>
-
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div><!-- /.container -->
+    </div>
 
     <footer class="footer">
       <div class="container">

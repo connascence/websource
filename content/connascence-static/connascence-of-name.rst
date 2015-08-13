@@ -12,15 +12,15 @@ Almost any code example involves connascence of name. Consider the following cla
 
 .. code-block:: python
 
-	class Request:
+    class Request:
 
-	    def __init__(self, url, data=None, headers={},
-	                 origin_req_host=None, unverifiable=False,
-	                 method=None):
-	        pass
+        def __init__(self, url, data=None, headers={},
+                     origin_req_host=None, unverifiable=False,
+                     method=None):
+            pass
 
-	    def set_proxy(self, host, type):
-	        pass
+        def set_proxy(self, host, type):
+            pass
 
 Changing the name of any part of this code will cause code that uses this class to break, including:
 
@@ -28,5 +28,5 @@ Changing the name of any part of this code will cause code that uses this class 
 * Changing any of the method names (such as ``set_proxy``).
 * Changing the name of any of the parameters to either ``__init__`` or ``set_proxy``.
 
-Connascence of name is unavoidable, since we refer to entities using labels. If we change the name of an entity when we declare it, we must also change all code that refers to that entity. For this reason, connascence of name is the *weakest* connascence. However, it also illustrates how important it is to name entities in code well.		
+Connascence of name is unavoidable, since we refer to entities using labels. If we change the name of an entity when we declare it, we must also change all code that refers to that entity. For this reason, connascence of name is the *weakest* connascence. However, it also illustrates how important it is to name entities in code well.     
 
