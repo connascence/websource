@@ -84,9 +84,8 @@ publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 github: publish
-	cp -r $(OUTPUTDIR)/* $(GITHUB_PAGES_REPO_LOCATION)
-	cd $(GITHUB_PAGES_REPO_LOCATION) && git add *
-	cd $(GITHUB_PAGES_REPO_LOCATION) && git commit -m "Automatic release."
+	rsync --exclude=".git" --exclude="CNAME" -uav --delete $(OUTPUTDIR)/ $(GITHUB_PAGES_REPO_LOCATION)
+	cd $(GITHUB_PAGES_REPO_LOCATION) && git commit -am "Automatic release."
 	cd $(GITHUB_PAGES_REPO_LOCATION) && git push origin $(GITHUB_PAGES_BRANCH)
 
 .PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
