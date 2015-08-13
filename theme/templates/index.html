@@ -1,15 +1,13 @@
 {# Render a list of connascences, given the article list and the connascence category #}
 {% macro render_connascence_list(article_list, category) -%}
-	<ul class="list-group">
+	<div class="list-group">
 	{% for article in article_list if article.category == category %}
-    	<li class="list-group-item">
-        	<h4>
-        		<a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">{{ article.title }}</a>
-    	    </h4>
-	        <p>{{ article.summary }}</p>
-    	</li>
+        <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
+        	<h4 class="list-group-item-heading">{{ article.title }}</h4>
+	        <p class="list-group-item-text">{{ article.summary }}</p>
+        </a>
 	{% endfor %}
-	</ul>
+	</div>
 {%- endmacro %}
 
 {% extends "base.html" %}
