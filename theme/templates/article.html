@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-{% block head %}
+{% block meta %}
   {{ super() }}
-  {% for description in article.description %}
-    <meta name="description" content="{{description}}" />
-  {% endfor %}
+  <meta name="description" content="{{article.summary|striptags}}" />
 {% endblock %}
 
 {% block content %}
