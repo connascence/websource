@@ -17,7 +17,7 @@ Connascence of meaning is when multiple components must agree on the meaning of 
         # Do normal validation:
         # ...
 
-The problem here is that all parts of this system must agree that "9999-9999-9999-9999" is the test credit card number. If that value changes in one place, it must also change in another.
+The problem here is that all parts of this system must agree that ``9999-9999-9999-9999`` is the test credit card number. If that value changes in one place, it must also change in another.
 
 Here's another example where user roles are encoded as integers:
 
@@ -54,7 +54,7 @@ However, the function might also return None in an error condition:
 
     def find_user_in_database(username):
         try:
-            return database.find_user(username=username)
+            return database.find_user(username=username) or None
         except DatabaseError:
             return None
 
@@ -63,7 +63,12 @@ The problem in both these cases is that a semantic meaning is being assigned to 
 .. code-block:: python
 
     def find_user_in_database(username):
-        return database.find_user(username=username) or ObjectNotFound
+        try:
+            return database.find_user(username=username) or ObjectNotFound
+        except DatabaseError:
+            returrn None
+
+We still have connascence of meaning in the error case, but at least the ``None`` value is no longer ambigous. The error case could also be improved to connascence of name in a similar way.
 
 Another common example of connascence of meaning is when we use primative numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:
 
@@ -76,3 +81,5 @@ What currency is that cost expressed in? US dollars? British pounds? How do you 
 .. code-block:: python
 
     unit_cost = Cost(49.95, 'USD')
+
+This particular problem is often called "**Primitive Obsession**", and can be generically described as using primitive data types to represent more complex domains. 

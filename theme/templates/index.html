@@ -3,7 +3,7 @@
 	<div class="list-group">
 	{% for article in article_list if article.category == category %}
         <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
-        	<h4 class="list-group-item-heading">{{ article.title }}</h4>
+        	<h4 class="list-group-item-heading blue">{{ article.title }}</h4>
 	        <p class="list-group-item-text">{{ article.summary }}</p>
         </a>
 	{% endfor %}
