@@ -14,7 +14,6 @@
     <!-- Bootstrap -->
     <link href="{{SITEURL}}/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{SITEURL}}/theme/css/style.css" rel="stylesheet">
-    <link href="{{SITEURL}}/theme/css/simple-sidebar.css" rel="stylesheet">
     <link href="{{SITEURL}}/theme/css/pygments.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -26,37 +25,41 @@
   {% endblock head %}
   </head>
   <body>
-    <div id="wrapper">
-      <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li class="sidebar-brand"><a href="{{SITEURL}}">{{SITENAME}}</a></li>
-          <li><h4>Static Connascences</h4></li>
-          {% for a in articles if a.category == 'connascence-static' %}
-            <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
-          {% endfor %}
-          <li><h4>Dynamic Connascences</h4></li>
-          {% for a in articles if a.category == 'connascence-dynamic' %}
-            <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
-          {% endfor %}
-          <li><h4>Properties</h4></li>
-          {% for p in PAGES %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </div> <!-- sidebar-wrapper -->
-      <div id="page-content-wrapper">
-        <div class="container-fluid">
-          {% block content %}
-          {% endblock %}
+    <div class="container-fluid">
+      <div class="row contentrow">
+        <div id="sidebar-wrapper" class="col-md-2 col-sm-4 col-xs-12">
+          <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a href="{{SITEURL}}">{{SITENAME}}</a></li>
+            <li><h4>Static Connascences</h4></li>
+            {% for a in articles if a.category == 'connascence-static' %}
+              <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
+            {% endfor %}
+            <li><h4>Dynamic Connascences</h4></li>
+            {% for a in articles if a.category == 'connascence-dynamic' %}
+              <li{% if a == article %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
+            {% endfor %}
+            <li><h4>Properties</h4></li>
+            {% for p in PAGES %}
+              <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div> <!-- sidebar-wrapper -->
+        <div class="col-md-10 col-sm-8 col-xs-12">
+          <div id="page-content-wrapper">
+            <div class="container-fluid">
+              {% block content %}
+              {% endblock %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <footer class="footer">
       <div class="container">
         <p class="text-muted"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
       </div>
     </footer>
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
