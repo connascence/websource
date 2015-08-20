@@ -3,7 +3,11 @@
   {{ super() }}
   <meta name="description" content="{{page.summary|striptags}}" />
 {% endblock %}
-{% block title %}{{ page.title }}{%endblock%}
+
+{% block title %}
+  {{ super() }}: {{ page.title }}
+{% endblock %}
+
 {% block content %}
 <section id="content" class="body">
   <header>

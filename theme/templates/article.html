@@ -4,6 +4,10 @@
   <meta name="description" content="{{article.summary|striptags}}" />
 {% endblock %}
 
+{% block title %}
+  {{ super() }}: {{ article.title }}
+{% endblock %}
+
 {% block content %}
 <section id="content" class="body">
   <header>
