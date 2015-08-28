@@ -1,52 +1,26 @@
-{# Render a list of connascences, given the article list and the connascence category #}
-{% macro render_connascence_list(article_list, category) -%}
-	<div class="list-group">
-	{% for article in article_list if article.category == category %}
-        <a class="list-group-item" href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title|striptags }}">
-        	<h4 class="list-group-item-heading blue">{{ article.title }}</h4>
-	        <p class="list-group-item-text">{{ article.summary }}</p>
-        </a>
-	{% endfor %}
-	</div>
-{%- endmacro %}
-
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
 	<div class="col-md-12">
-	<div class="page-header">
-		<h1>What is Connascence?</h1>
-	</div>
-	<dl>
-		<dt>Connascence</dt>
-		<dd>
-			<ol>
-				<li>The simultaneous birth of two or more things</li>
-				<li>The act of growing at the same time</li>
-				<li>(computing) A relationship between two or more elements of software in which changing one necessitates changing the others in order to maintain overall correctness.</li>
-			</ol>
-		</dd>
-	</dl>
-	<p>
-	Connascence is a software quality metric that describes different types of coupling. The concept of connascence is a taxonomy of specific types of coupling. Individual connaissances have three properties that are important to recognise:
-	<dl>
-		<dt>Strength</dt>
-		<dd>The strength of a specific connascence is determined by how hard it is to change or remove. Generally, when refactoring code, changes should be made to prefer weaker types of connascence over stronger types.</dd>
-		<dt>Degree</dt>
-		<dd>The degree of a connascence refers to the degree of its occurance within a codebase. Connascences are often acceptable in small quantities, but should be removed if they occur frequently.</dd>
-		<dt>Locality</dt>
-		<dd>The locality of a connascence refers to how far apart the connascent elements are. Generally speaking, connascences will be more acceptible within a function or module, and less acceptible between modules.</dd>
-	</dl>
-	</p>
-	<p>Connascences are also split into <term>static</term> and <term>dynamic</term> connascences. Static connascences can be discovered by inspecting source code, while dynamic connascences can only be discovered by looking at the run-time behavior of a program. For this reason, static connascences are considered to be weaker than their dynamic counterparts.</p>
-	</div>
-	<div class="col-md-6">
-		<h4>Static Connascences</h4>
-		{{ render_connascence_list(articles_page.object_list, 'connascence-static') }}
-	</div>
-	<div class="col-md-6">
-		<h4>Dynamic Connascences</h4>
-		{{ render_connascence_list(articles_page.object_list, 'connascence-dynamic') }}
+		<div class="jumbotron">
+			<h1>What is Connascence?</h1>
+				<p>Connascence is a software quality metric &amp; a taxonomy for different types of coupling. <br />
+				<small>This site is a handy reference to the various types of connascence, with examples to help you improve your code.</small></p>
+		</div>
+		<h3>Subject to Change</h3>
+		<p><em>All code</em> is subject to change. As the real world changes, so too must our code. Connascence gives us an insight into the long-term impact our code will have on flexibility, as we write it. Maintaining a flexible codebase is essential for maintaining long-term development velocity.</p>
+
+		<h3>A Flexible Metric</h3>
+		<p>Connascence is a metric, and like all metrics is an imperfect measure. However, connascence takes a more holistic approach, where each instance of connascence in a codebase must be considered on three separate axes:</p>
+		<ol>
+			<li><a href="/strength.html">Strength</a>. Stronger connascences are harder to discover, or harder to refactor.</li>
+			<li><a href="/degree.html">Degree</a>. An entity that is connascant with thousands of other entities is likely to be a larger issue than one that is connascant with only a few.</li>
+			<li><a href="/locality.html">Locality</a>. Connascant elements that are close together in a codebase are better than ones that are far apart.</li>
+		</ol>
+		<p>The three properties of Strength, Degree, and Locality give the programmer all the tools they need in order to make informed decisions about when they will permit certain types of coupling, and when the code ought to be refactored.</p>
+		
+		<h3>A Vocabulary for Coupling</h3>
+		<p>Arguably one of the most important benefits of connascence is that it gives developers a vocabulary to talk about different types of coupling. Connascence codifies what many experienced engineers have learned by trial and error: Having a common set of nouns to refer to different types of coupling allows us to share that experience more easily.</p>
 	</div>
 </div>
 {% endblock content %}
