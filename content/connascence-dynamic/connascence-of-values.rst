@@ -2,7 +2,7 @@ Connascence of Value
 ########################
 
 :strength: 70
-:slug: values
+:slug: value
 :summary: Connascence of value is when several values must change together.
 
 Connascence of value is when several values must change together. This frequently occurs between production code and test code. For example, consider an ``Article`` class, which represents a blog article. When it is instantiated, it is given some text contents, and its initial 'state' is 'draft':
