@@ -49,11 +49,11 @@ Test code often contains connascence of algorithm. Consider this hypothetical te
 
 .. code-block:: python
 
-	def test_user_fingerprint(self):
-		user = User.new(name="Thomi Richards")
-		actual = user.fingerprint()
-		expected = hashlib.md5(user.name).hexdigest()
-		self.assertEqual(expected, actual)
+    def test_user_fingerprint(self):
+        user = User.new(name="Thomi Richards")
+        actual = user.fingerprint()
+        expected = hashlib.md5(user.name).hexdigest()
+        self.assertEqual(expected, actual)
 
 This test is supposed to be testing that the 'fingerprint' method of the ``User`` class works as expected. However, it contains connascence of algorithm, which limits it's effectiveness. If the ``User`` class ever changes the way fingerprints are calculated, this test will fail.
 
