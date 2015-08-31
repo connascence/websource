@@ -5,4 +5,4 @@ Connascence of Identity
 :slug: identity
 :summary: Connascence of identity is when multiple components must reference the same entity.
 
-Connascence of identity is when multiple components must reference the entity.
+Connascence of identity is when multiple components must reference the same entity.
