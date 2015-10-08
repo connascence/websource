@@ -38,9 +38,9 @@ The problem here is that the test requires knowledge of the initial state of the
 .. code-block:: python
 
     class ArticleState(Enum):
-        InitialState = 1
         Draft = 1
         Published = 2
+        InitialState = Draft
 
         
     class Article(object):
@@ -64,9 +64,9 @@ Should we need to change the state machine of the ``Article`` class, we can do s
 .. code-block:: python
 
     class ArticleState(Enum):
-        InitialState = 1
         Preproduction = 1
         Draft = 2
-        Published = 2
+        Published = 3
+        InitialState = Preproduction
 
 We have effectively introduced a level of indirection between the ``Article`` class and its initial state value.
