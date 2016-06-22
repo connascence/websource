@@ -37,7 +37,7 @@
               <div class="panel-heading">Static Connascences</div>
               <!-- List group -->
               <ul class="list-group">
-              {% for a in articles if a.category == 'connascence-static' %}
+              {% for a in articles if a.category|lower == 'connascence-static' %}
                 <li class="list-group-item"><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
               {% endfor %}
               </ul>
@@ -45,7 +45,7 @@
               <div class="panel-heading">Dynamic Connascences</div>
               <!-- List group -->
               <ul class="list-group">
-              {% for a in articles if a.category == 'connascence-dynamic' %}
+              {% for a in articles if a.category|lower == 'connascence-dynamic' %}
                 <li class="list-group-item"><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
               {% endfor %}
               </ul>
@@ -53,7 +53,7 @@
               <div class="panel-heading">Properties</div>
               <!-- List group -->
               <ul class="list-group">
-              {% for a in articles if a.category == 'properties' %}
+              {% for a in articles if a.category|lower == 'properties' %}
                 <li class="list-group-item"><a href="{{ SITEURL }}/{{ a.url }}">{{a.slug|capitalize}}</a></li>
               {% endfor %}
               </ul>
@@ -93,4 +93,3 @@
     </script>
   </body>
 </html>
-

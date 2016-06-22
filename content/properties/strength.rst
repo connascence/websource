@@ -9,4 +9,4 @@ The *strength* of a form of connascence is determined by the ease with which tha
 
 Static connascences are considered to be weaker than dynamic connascences, since static connascences can be determined simply by examining the source code. Dynamic connascences require knowledge of run-time behavior, and thus are harder to reason about.
 
-Strength and `locality <{filename}/pages/locality.rst>`_ should be considered together. Stronger forms of connascence are often found within the same function, class, or module where their impact can be more easily observed.
+Strength and `locality <{filename}/properties/locality.rst>`_ should be considered together. Stronger forms of connascence are often found within the same function, class, or module where their impact can be more easily observed.

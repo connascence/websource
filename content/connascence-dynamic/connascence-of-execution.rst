@@ -17,4 +17,4 @@ Connascence of execution can also occur when using objects that encapsulate a st
 	email.send()
 	email.setSubject("Hello World")
 
-The last two lines show a trivial example of connascence of execution. The ``setSubject`` method cannot be called after the ``send`` method (at best it will do nothing). In this example the `locality <{filename}/pages/locality.rst>`_ of the coupling is very low, but cases where the locality is very high can be much harder to find and fix (consider, for example a scenario where the last two lines are called on separate threads).
+The last two lines show a trivial example of connascence of execution. The ``setSubject`` method cannot be called after the ``send`` method (at best it will do nothing). In this example the `locality <{filename}/properties/locality.rst>`_ of the coupling is very low, but cases where the locality is very high can be much harder to find and fix (consider, for example a scenario where the last two lines are called on separate threads).
