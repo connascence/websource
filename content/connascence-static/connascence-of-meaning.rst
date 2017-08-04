@@ -66,7 +66,7 @@ The problem in both these cases is that a semantic meaning is being assigned to 
         try:
             return database.find_user(username=username) or ObjectNotFound
         except DatabaseError:
-            returrn None
+            return None
 
 We still have connascence of meaning in the error case, but at least the ``None`` value is no longer ambigous. The error case could also be improved to connascence of name in a similar way.
 
