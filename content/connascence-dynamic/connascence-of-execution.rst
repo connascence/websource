@@ -18,11 +18,11 @@ caller to generate and send an email:
 
 .. code-block:: python
 
-	email = Email()
-	email.setRecipient("foo@example.comp")
-	email.setSender("me@mydomain.com")
-	email.send()
-	email.setSubject("Hello World")
+    email = Email()
+    email.setRecipient("foo@example.comp")
+    email.setSender("me@mydomain.com")
+    email.send()
+    email.setSubject("Hello World")
 
 The last two lines show a trivial example of connascence of execution. The
 ``setSubject`` method cannot be called after the ``send`` method (at best it
