@@ -5,7 +5,10 @@ Connascence of Value
 :slug: value
 :summary: Connascence of value is when several values must change together.
 
-Connascence of value is when several values must change together. This frequently occurs between production code and test code. For example, consider an ``Article`` class, which represents a blog article. When it is instantiated, it is given some text contents, and its initial 'state' is 'draft':
+Connascence of value is when several values must change together. This
+frequently occurs between production code and test code. For example, consider
+an ``Article`` class, which represents a blog article. When it is instantiated,
+it is given some text contents, and its initial 'state' is 'draft':
 
 .. code-block:: python
 
@@ -33,7 +36,12 @@ Now imagine a hypothetical test that ensures that the ``publish`` method works:
     article.publish()
     assert article.state == ArticleState.Published
 
-The problem here is that the test requires knowledge of the initial state of the ``Article`` class: if the Article's initial state is ever changed, this test will break (this is arguably a bad test, since the first assertion has little to do with the intent of the test, but it's a common mistake). This code can be improved by adding an ``InitialState`` label to ``ArticleClass``, and changing both the ``Article`` class and the test to refer to that label instead:
+The problem here is that the test requires knowledge of the initial state of the
+``Article`` class: if the Article's initial state is ever changed, this test
+will break (this is arguably a bad test, since the first assertion has little to
+do with the intent of the test, but it's a common mistake). This code can be
+improved by adding an ``InitialState`` label to ``ArticleClass``, and changing
+both the ``Article`` class and the test to refer to that label instead:
 
 .. code-block:: python
 
@@ -42,7 +50,7 @@ The problem here is that the test requires knowledge of the initial state of the
         Published = 2
         InitialState = Draft
 
-        
+
     class Article(object):
 
         def __init__(self, contents):
@@ -59,7 +67,8 @@ The test now becomes:
     article.publish()
     assert article.state == ArticleState.Published
 
-Should we need to change the state machine of the ``Article`` class, we can do so by changing the ``ArticleState`` enumeration:
+Should we need to change the state machine of the ``Article`` class, we can do
+so by changing the ``ArticleState`` enumeration:
 
 .. code-block:: python
 
@@ -69,4 +78,6 @@ Should we need to change the state machine of the ``Article`` class, we can do s
         Published = 3
         InitialState = Preproduction
 
-We have effectively introduced a level of indirection between the ``Article`` class and its initial state value.
+We have effectively introduced a level of indirection between the ``Article``
+class and its initial state value.
+
