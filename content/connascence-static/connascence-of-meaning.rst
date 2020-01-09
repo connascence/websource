@@ -70,13 +70,13 @@ The problem in both these cases is that a semantic meaning is being assigned to 
 
 We still have connascence of meaning in the error case, but at least the ``None`` value is no longer ambigous. The error case could also be improved to connascence of name in a similar way.
 
-Another common example of connascence of meaning is when we use primative numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:
+Another common example of connascence of meaning is when we use primitive numeric types to represent more complex values. Consider this line of code in a codebase that processes payments:
 
 .. code-block:: python
 
     unit_cost = 49.95
 
-What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primative type. It can be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:
+What currency is that cost expressed in? US dollars? British pounds? How do you ensure that two costs with different currencies are not added together? Similar to the examples above, the problem is that a semantic meaning is being added to the primitive type. It can be improved to connascence of type by creating a 'Cost' type that disallows operations between different currencies:
 
 .. code-block:: python
 
