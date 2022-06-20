@@ -22,7 +22,7 @@ Consider a hypothetical piece of software that required users to provide a valid
 * In a webapp 'controller' class method.
 * In a form field in the front-end UI.
 
-These pieces of code might well be in different languages, and will almost certainly be far apart from each other. The consequence of these algorithms being different might include users not being able to register, but recieving no feedback as to why.
+These pieces of code might well be in different languages, and will almost certainly be far apart from each other. The consequence of these algorithms being different might include users not being able to register, but receiving no feedback as to why.
 
 Another common example of connascence of algorithm is when unicode strings are written to disk. Imagine a hypothetical piece of software that writes a data string to a cache file on disk:
 
