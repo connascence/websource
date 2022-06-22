@@ -13,7 +13,7 @@ An example is a system user, a shared actor used across an application for task 
 
     class SystemUser
       def self.get
-        User.find_one(type: "system")
+        # find and instantiate the one system user from the database
       end
     end
 
